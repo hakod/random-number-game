@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Back end game</title>
+  </head>
+  <body>
+    <h1>Guess a number between 1 to 100</h1>
+    <h2>Correct! Play again.</h2>
+    <form method="POST" action="/guess">
+      <input
+        type="number"
+        name="num"
+        min="0"
+        max="99"
+        placeholder="Guess"
+        required
+      />
+      <input type="submit" value="Send" />
+    </form>
+  </body>
+</html>
