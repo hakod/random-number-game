@@ -10,10 +10,11 @@ app.get("/", function(req, res) {
   res.sendFile(path.resolve("index.html"));
 });
 
+var rand = Math.floor(Math.random() * 100);
 app.post("/guess", urlencodedParser, function(req, res) {
-  var rand = Math.floor(Math.random() * 100);
-  if (req.body.num === rand) {
+  if (req.body.num == rand) {
     res.sendFile(path.resolve("guess.html"));
+    rand = Math.floor(Math.random() * 100);
   } else if (req.body.num > rand) {
     res.status(404).send("Too high");
   } else if (req.body.num < rand) {
