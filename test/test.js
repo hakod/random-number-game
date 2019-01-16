@@ -14,7 +14,11 @@ describe("Test game", function() {
         .set("content-type", "application/x-www-form-urlencoded")
         .send({ num: 45 })
         .end(function(err, res) {
-          res.should.have.status(404);
+          if (res.body.num != 45) {
+            res.should.have.status(404);
+          } else if (res.body.num == 45) {
+            res.should.have.status(200);
+          }
           done(err);
         });
     });
