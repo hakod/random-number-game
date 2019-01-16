@@ -19,6 +19,18 @@ describe("Test game", function() {
           } else if (res.body.num == 45) {
             res.should.have.status(200);
           }
+        });
+      chai
+        .request(server)
+        .post("/guess")
+        .set("content-type", "application/x-www-form-urlencoded")
+        .send({ num: 23 })
+        .end(function(err, res) {
+          if (res.body.num != 23) {
+            res.should.have.status(404);
+          } else if (res.body.num == 23) {
+            res.should.have.status(200);
+          }
           done(err);
         });
     });
